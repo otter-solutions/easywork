@@ -15,7 +15,7 @@ const { persistor, store } = StoreThunk();
 
 ReactDOM.render(
     <Provider store={store}>
-        <PersistGate loading={() => console.log('here')} persistor={persistor}>
+        <PersistGate loading={() => { return (<div>Loading</div>) }} persistor={persistor}>
             <App />
         </PersistGate>
     </Provider>,

@@ -1,7 +1,24 @@
 import React, { Component } from 'react';
 import connect from "react-redux/es/connect/connect";
+import BellIcon from "../../icons/BellIcon";
+import SearchIcon from "../../icons/SearchIcon";
 
 class Menu extends Component {
+
+    _loadEffects () : void {
+        const form = document.getElementById('menu-form');
+        const button = document.querySelector('.navbar-form > a');
+        const link = document.querySelector('.navbar .right > a');
+
+        button.addEventListener('click', e => {
+            e.preventDefault();
+            form.classList.toggle('active');
+        })
+    }
+
+    componentDidMount(): void {
+        this._loadEffects();
+    }
 
     render() {
         return (
@@ -16,15 +33,15 @@ class Menu extends Component {
                             <form action="" id="menu-form">
                                 <input type="text" />
                                 <button type="submit">
-                                    PRocura
+                                    <SearchIcon />
                                 </button>
                             </form>
                             <a href="#">
-                                Procura
+                                <SearchIcon />
                             </a>
                         </div>
                         <a href="">
-                            Teste
+                            <BellIcon />
                         </a>
                     </div>
                 </div>
