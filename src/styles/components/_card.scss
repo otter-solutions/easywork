@@ -1,0 +1,74 @@
+.card{
+  border-radius: 7px;
+  margin-top: 20px;
+  
+  &-header{
+    background-color: $green;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    padding: {
+      top: 30px;
+      bottom: 20px;
+    }
+
+    &-info{
+      width: percentage(242px / 300px);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+
+      p{
+        display: flex;
+        align-items: center;
+        max-width: 50%;
+        flex: 0 0 50%;
+        color: #fff;
+        font-size: 20px;
+        @include font('Roboto');
+        font-weight: 300;
+
+        svg,
+        img{
+          @include size(30);
+          margin-right: 6px;
+        }
+
+        svg{
+          @include change-svg-color(#ffffff);
+        }
+      } // -> p
+    } // -> &-info
+
+    .title{
+      color: #ffffff;
+      line-height: 35px;
+      width: percentage(242px / 300px);
+      margin: 0 auto 20px;
+    } // -> .title
+  } // -> &-header
+  &-body{
+    border: {
+      left: 1px solid #BBC3C8;
+      right: 1px solid #BBC3C8;
+      bottom: 1px solid #BBC3C8;
+    };
+    min-height: 136px;
+
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+    padding: {
+      top: 15px;
+      bottom: 15px;
+    }
+
+    > * {
+      width: percentage(242px / 300px);
+      margin: 0 auto;
+
+      font-size: 20px;
+      @include font('Roboto');
+      font-weight: 300;
+      color: #576B77;
+    }
+  } // -> .body
+} // ->. card

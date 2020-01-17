@@ -1,0 +1,62 @@
+.modal{
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  max-width: 100vw;
+  z-index: 9999;
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(30px);
+  transition: all .2s ease;
+
+  &.active{
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .backdrop{
+    background-color: rgba(#E8E8E8, .71);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  &-content{
+    min-height: 436px;
+    width: 516px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px rgba(#000, .16);
+  }
+
+  &-header{
+    padding: 25px;
+
+    color: $dark-grey;
+    font-size: 18px;
+    line-height: 25px;
+    font-weight: 300;
+  }
+
+  &-body{
+    padding: 0 25px 25px;
+
+    textarea.control{
+      height: 193px;
+    }
+  }
+
+  &-footer{
+    padding: 0 25px 25px;
+  }
+}

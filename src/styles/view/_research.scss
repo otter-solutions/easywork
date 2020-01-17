@@ -1,0 +1,146 @@
+[view="research"]{
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+
+  main{
+    padding: 34px 30px;
+    flex-grow: 1;
+    overflow: auto;
+    height: calc( 100vh - 67px );
+
+    h1{
+      max-width: 710px;
+      flex: 0 0 100%;
+    }
+
+    .container{
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .left{
+      flex-grow: 1;
+      padding-top: 47px;
+      max-width: 650px;
+
+      p{
+        color: $dark-blue-desaturated;
+        font-size: 20px;
+        line-height: 26px;
+        @include font('Roboto');
+        letter-spacing: 1px;
+        margin-top: 15px;
+        max-width: 515px;
+      }
+    }
+
+    .right{
+      width: 342px;
+
+      p{
+        color: #576B77;
+        text-decoration: none;
+        font-size: 20px;
+        margin-bottom: 25px;
+      }
+
+      .circle.chart{
+        @include size(180);
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .circle-percent{
+          color: $orange;
+          font-size: 33px;
+          line-height: 44px;
+          font-weight: 600;
+        }
+        
+        svg{
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          
+          &.zero{
+            z-index: 2;
+          }
+          &.one{
+            z-index: 4;
+          }
+        }
+      }
+
+      .button{
+        height: 75px;
+        width: 309px;
+      }
+
+      .info{
+        margin-bottom: 30px;
+
+        li{
+          height: 50px;
+          width: 100%;
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          margin-bottom: 10px;
+
+          font-size: 24px;
+          line-height: 29px;
+          letter-spacing: .5px;
+
+
+          img{
+            margin-right: 17px;
+          }
+        }
+      }
+
+      .exit-link{
+        display: flex;
+        
+        color: #576B77;
+        text-decoration: none;
+        font-size: 20px;
+        line-height: 26px;
+        margin-bottom: 25px;
+
+        img{
+          margin-right: 30px;
+        }
+      }
+    }
+  }
+
+  .bottom{
+    background-color: #FAFAFA;
+    height: 185px;
+    align-items: center;
+    margin: 40px -30px;
+    display: flex;
+    width: 100vw;
+    padding: 0 30px;
+
+    p{
+      font-size: 24px;
+      line-height: 29px;
+      font-weight: bold;
+    }
+
+    .left{
+      padding: 0;
+    }
+
+    .control{
+      height: 85px;
+      margin: 0;
+      max-width: 515px;
+
+      font-size: 26px;
+    }
+  }
+}

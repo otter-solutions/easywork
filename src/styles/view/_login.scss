@@ -1,0 +1,59 @@
+[view="login"]{
+
+  form{
+    max-width: 493px;
+    margin: 0 auto;
+    padding: {
+      top: 50px;
+      left: 15px;
+      right: 15px;
+    }
+  }
+
+  p{
+    font-size: 18px;
+    color: $dark-grey;
+    text-align: center;
+    margin-top: 24px;
+
+    a{
+      text-decoration: underline;
+      color: $dark-grey;
+    }
+  }
+
+  hr{
+    background-color: #BFBFBF;
+    max-width: 215px;
+    margin: 25px auto;
+    height: 2px;
+    border: none;
+  }
+
+  .button{
+    margin-bottom: 24px;
+    max-width: none;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .footer{
+    max-width: 1366px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 50px;
+    padding: 0 15px;
+
+
+    a{
+      font-size: 12px;
+      color: #576B77;
+      text-decoration: underline;
+      margin: 0 15px;
+    }
+  }
+}

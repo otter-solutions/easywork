@@ -1,0 +1,84 @@
+.collapse{
+
+  $self: &;
+
+  border-radius: 5px;
+  border: 1px solid #DDE0E2;
+
+  &-header{
+    @include size(87, 514);
+    color: $black;
+    font-size: 16px;
+    line-height: 1;
+    
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: {
+      left: 30px;
+      right: 19px;
+    }
+
+    .edit{
+      background: {
+        image: url('/images/pencil.png');
+        repeat: no-repeat;
+        size: contain;
+      };
+      @include size(20);
+    }
+
+    .checked,
+    .icon{
+      @include circle(38);
+      position: relative;
+    }
+
+    .checked{
+      background: {
+        color: $green;
+        image: url('/images/icon_7_.png');
+        repeat: no-repeat;
+        size: 17px;
+        position: 50% 50%;
+      }
+    }
+
+    .icon{
+      background-color: #BBC3C8;
+
+      &:before,
+      &:after{
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #DDE1E3;
+        border-radius: 10px;
+      }
+
+      &:after{
+        @include size(22, 6);
+      }
+      &:before{
+        @include  size(6, 22);
+      }
+    }
+  }
+
+  &-body{
+    display: none;
+    >div{
+      padding: 20px 30px;
+    }
+  }
+
+  &.active{
+    #{$self} {
+      &-body{
+        display: block;
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+.table{
+  width: 100%;
+  border-collapse: collapse;
+
+  thead,
+  tbody{
+    width: 100%;
+
+    > tr{
+
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      border-radius: 6px;
+      margin-bottom: 10px;
+
+      th,
+      td{
+        padding: 0 16px;
+        height: 56px;
+        display: flex;
+        align-items: center;
+        width: 100%;
+      }
+    }
+  }
+  
+  &-striped{
+    tbody{
+      >tr:nth-child(odd){
+        background-color: #F2F2F2;
+      }
+      >tr:nth-child(even){
+        background-color: #FCFCFC;
+      }
+    }
+  }
+
+  &.green{
+    thead{
+      tr{
+        background-color: $green;
+        th{
+          color: #ffffff;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+[view="research-list"]{
+  main{
+    flex-grow: 1;
+    padding: 17px;
+    height: calc(100vh - 67px);
+    overflow: auto;
+  }
+
+  .buttons,
+  .table{
+    max-width: 977px;
+  }
+
+  .buttons{
+    width: auto;
+  }
+
+  .buttons .button{
+    margin-left: auto;
+  }
+}

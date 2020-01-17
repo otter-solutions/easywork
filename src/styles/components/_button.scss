@@ -1,0 +1,94 @@
+.button{
+  display: inline-block;
+  border-radius: 4px;
+
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none!important;
+
+  height: 75px;
+  line-height: 75px;
+  padding: 0 30px;
+  //max-width: 493px;
+  //width: 100%;
+  border: none;
+  cursor: pointer;
+  background-color: #9AA6AD;
+  color: #ffffff;
+
+  transition: all .2s ease;
+
+  &[disabled]{
+    pointer-events: none;
+    touch-action: none;
+    cursor: default;
+  }
+
+  &.has-icon{
+    position: relative;
+
+    img, svg{
+      @include size(20);
+
+      position: absolute;
+      top: 50%;
+      right: 40px;
+      transform: translateY(-50%);
+    }
+  }
+
+  &.yellow{
+    background-color: $yellow;
+    color: $blue;
+  }
+
+  &.green{
+    background-color: $green;
+    color: #ffffff;
+  }
+
+  &.facebook{
+    background-color: $facebook-color;
+    color: #ffffff;
+
+    &:hover{
+      background-color: darken($facebook-color, 5%);
+    }
+  }
+
+  &.google{
+    background-color: $google-color;
+    color: #ffffff;
+
+    &:hover{
+      background-color: darken($google-color, 5%);
+    }
+  }
+
+  > .image{
+    @include circle(50);
+    display: block;
+    background-color: rgba(#000, .3);
+    margin-right: 14px;
+  }
+} // -> .button
+
+.link{
+  color: #707070;
+  text-decoration: underline;
+  cursor: pointer;
+
+  &:hover{
+    color: $green;
+  }
+}
+
+.buttons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  max-width: 938px;
+  width: 100%;
+}

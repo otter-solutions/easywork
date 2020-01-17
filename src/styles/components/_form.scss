@@ -1,0 +1,118 @@
+// Especial para a view login
+.group-login{
+  position: relative;
+
+  .placeholder{
+    position: absolute;
+    pointer-events: none;
+    font-size: 22px;
+    font-weight: 300;
+    z-index: 1;
+    top: 50%;
+    left: 25px;
+    transform: translateY(-50%);
+
+    transition: all .2s ease;
+  }
+  .control{
+    display: block;
+    height: 64px;
+    width: 100%;
+    background-color: #F4F4F4;
+    border: 1px solid #F4F4F4;
+    margin-bottom: 25px;
+    border-radius: 4px;
+    font-size: 22px;
+    padding: 0 25px;
+
+    &.used + .placeholder,
+    &:focus + .placeholder{
+      font-size: 12px;
+      top: 12px;
+    }
+  } // -> .control
+} // -> .group
+
+.group{
+  position: relative;
+  width: auto;
+
+  .control{
+    display: block;
+    height: 42px;
+    width: 100%;
+    border: 1px solid $grey2;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    font-size: 18px;
+    font-weight: 300;
+    padding: 0 15px;
+    color: $grey2;
+
+    @include placeholder{
+      font-weight: 300;
+      color: $grey2;
+      @include font('Montserrat');
+    }
+  }
+
+  select.control{
+    display: block;
+    width: 100%;
+    background-color: #fff;
+    -webkit-appearance: none;
+    background: {
+      image: url(/images/down-arrow.png);
+      repeat: no-repeat;
+      position: calc(100% + -10px) 50%;
+      size: 20px;
+    }
+  }
+
+  textarea.control{
+    min-height: 162px;
+    max-height: 200px;
+    resize: vertical;
+    padding: 15px;
+  }
+}
+
+.checkbox{
+  position: relative;
+
+  >label{
+    @include size(21, 56);
+    border-radius: 56px;
+    border: 2px solid $dark-grey;
+    overflow: hidden;
+    display: block;
+
+    &:after{
+      content: "";
+      position: absolute;
+      @include circle(15);
+      background-color: $dark-grey;
+      top: 3px;
+      left: 3px;
+      transition: all .125s ease;
+    }
+  }
+
+  input{
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    @include size(0);
+    overflow: hidden;
+
+    &:checked + label{
+      border-color: $green;
+      &:after{
+        background-color: $green;
+        transform: translateX(35px);
+      }
+    }
+  }
+}

@@ -1,0 +1,130 @@
+[view="dashboard"]{
+
+  .dashboard-graphics, main{
+    > header{
+      height: 78px;
+      display: flex;
+      align-items: center;
+      padding: 0 15px;
+    }
+  }
+
+  .dashboard-graphics{
+    flex: 0 0 300px;
+    max-width: 300px;
+
+    .list{
+      border: 1px solid #DDE1E3;
+      border-radius: 4px;
+
+      &-item{
+        @include size(86, 300);
+        display: flex;
+        align-items: center;
+        padding-left: 20px;
+
+        p{
+          font-size: 20px;
+          font-weight: 300;
+          color: #576B77;
+
+          span{
+            display: block;
+            text-transform: uppercase;
+            font-size: 15px;
+            margin-top: 12px;
+          }
+        }
+        
+        &:nth-child(2n){
+          background-color: #DDE1E3;
+        }
+      }
+    }
+  }
+
+  main{
+    height: calc(100vh - 67px);
+    flex-grow: 1;
+    padding: 0 5px;
+    transition: $transition-default;
+    overflow: auto;
+
+    >header{
+      .title{
+        flex-grow: 1;
+      }
+
+      .option{
+
+      }
+    }
+
+    .cards{
+      display: flex;
+      flex-wrap: wrap;
+      overflow: auto;
+      min-height: calc(100vh - 67px - 78px);
+
+      .card{
+        flex: 0 0 calc(50% - 10px);
+        max-width: calc(50% - 10px);
+        margin: 0 5px 30px;
+
+        position: relative;
+
+        .inner-content{
+          display: none;
+          padding-top: 30px;
+
+          >h1, h2, h3, h4, h5, h6, p{
+            margin-bottom: 15px;
+          }
+        }
+
+        .toggl{
+          @include circle(31);
+          background-color: #fff;
+          position: absolute;
+          top: 15px;
+          right: 15px;
+
+          &:after, &:before{
+            content: "";
+            position: absolute;
+            border-radius: 99px;
+            background-color: $green;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }
+
+          &:after{
+            @include size(5, 18);
+          }
+          &:before{
+            @include size(18, 5);
+          }
+        }
+
+        &.active{
+          .toggl{
+            &:before{
+              @include size(5, 5);
+            }
+          }
+          .inner-content{
+            display: block;
+          }
+        }
+      }
+
+      &[type=lista]{
+        .card{
+          flex: 0 0 calc(100% - 10px);
+          max-width: calc(100% - 10px);
+        }
+      }
+    }
+  } // -> main
+} // -> [view=dashboard]

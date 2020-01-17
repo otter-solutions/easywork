@@ -1,0 +1,112 @@
+.navbar{
+  height: 67px;
+  width: 100%;
+  max-width: 100vw;
+  background-color: $light-grey;
+  border-bottom: 2px solid $grey;
+  display: flex;
+  align-items: center;
+
+  .container{
+    // 1366
+    // 1366 - 110 = 1256
+    width: 100%;
+    margin: 0 percentage( 55px / 1366px );
+    padding: 0 32px;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .brand{
+    height: 56px;
+
+    img{
+      display: block;
+      height: 100%;
+    }
+  }
+
+  .right{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  form{
+    button{
+      svg{
+        @include change-svg-color(#A3A4A5);
+        @include size(40);
+      }
+    }
+  }
+
+  .navbar-form{
+    position: relative;
+
+    form{
+      opacity: 0;
+      visibility: hidden;
+      position: absolute;
+      @include size(48, 411);
+      top: 0;
+      right: 0;
+      display: flex;
+      background-color: #fff;
+      border: 1px solid #AFAFAF;
+      border-radius: 4px;
+      overflow: hidden;
+
+      transition: all .2s ease-in-out;
+
+      >input{
+        border: none;
+        padding: 0 25px;
+        display: block;
+        width: 100%;
+        font-size: 18px;
+        color: $dark-blue-desaturated;
+
+        &:focus{
+          box-shadow: 0 3px 6px rgba(#000, .16);
+        }
+      }
+
+      button[type="submit"]{
+        @include size(46);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: none;
+        position: absolute;
+        z-index: 4;
+        right: -1px;
+        top: -1px;
+
+        svg{
+          @include size(28);
+          @include change-svg-color($dark-blue-desaturated)
+        }
+      }
+
+      &.active{
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+
+  a{
+    @include size(46);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    svg{
+      @include size(28);
+      @include change-svg-color($dark-blue-desaturated)
+    }
+  }
+}

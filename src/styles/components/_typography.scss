@@ -1,0 +1,32 @@
+.title{
+  font-size: 24px;
+  @include font('Montserrat');
+  color: #576B77;
+  line-height: 29px;
+}
+
+h1{
+  font-size: 34px;
+  line-height: 42px;
+  color: #010207;
+}
+
+h2{
+  font-size: 30px;
+  color: #010207;
+  font-weight: 500;
+}
+
+h3{
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 29px;
+  color: $dark-blue-desaturated
+}
+
+h4{
+  color: $dark-blue-desaturated;
+  font-size: 22px;
+  font-weight: bold;
+  line-height: 27px;
+}
