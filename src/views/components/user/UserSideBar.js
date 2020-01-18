@@ -1,11 +1,10 @@
 import React from 'react';
 import connect from "react-redux/es/connect/connect";
 
-import View from "../View";
+import View from "../../View";
+import ArrowIcon from "../../../icons/ArrowIcon";
 
-import ArrowIcon from "../../icons/ArrowIcon";
-
-class SideBar extends View {
+class UserSideBar extends View {
 
     render() {
         return (
@@ -55,4 +54,4 @@ class SideBar extends View {
     }
 }
 
-export default connect(state => state)(SideBar);
+export default connect(state => state)(UserSideBar);

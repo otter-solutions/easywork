@@ -1,14 +1,16 @@
 import React from 'react';
 import connect from "react-redux/es/connect/connect";
 
-import SideBar from "../../components/SideBar";
+import View from "../../View";
 
-class FinanceView extends React.Component {
+import UserSideBar from "../../components/user/UserSideBar";
+
+class FinanceView extends View {
     render() {
         return (
             <section view="finance" className="page">
 
-                <SideBar />
+                <UserSideBar />
 
                 <main>
                     <div className="table">

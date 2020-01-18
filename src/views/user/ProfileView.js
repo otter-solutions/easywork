@@ -1,14 +1,18 @@
 import React from 'react';
 import connect from "react-redux/es/connect/connect";
-import SideBar from "../components/SideBar";
+
+import View from "../View";
+
 import PencilIcon from "../../icons/PencilIcon";
 
-class ProfileView extends React.Component {
+import UserSideBar from "../components/user/UserSideBar";
+
+class ProfileView extends View {
     render() {
         return (
             <section view="user" className="page">
 
-                <SideBar />
+                <UserSideBar />
 
                 <main>
                     <div className="tabs">

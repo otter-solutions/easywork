@@ -1,14 +1,18 @@
 import React from 'react';
 import connect from "react-redux/es/connect/connect";
-import SideBar from "../components/SideBar";
+
+import View from "../View";
+
 import CoinIcon from "../../icons/CoinIcon";
 import ClockIcon from "../../icons/ClockIcon";
 
-class SurveysView extends React.Component {
+import UserSideBar from "../components/user/UserSideBar";
+
+class SurveysView extends View {
     render() {
         return (
             <section view="dashboard" className="page">
-                <SideBar />
+                <UserSideBar />
                 <main>
                     <header>
                         <h2 className="title">SURVEYS</h2>
