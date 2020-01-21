@@ -16,6 +16,8 @@ import LoginView from "./views/LoginView";
 import ProfileView from "./views/user/ProfileView";
 import FinanceView from "./views/user/dashboard/FinanceView";
 import SurveysView from "./views/user/SurveysView";
+import ClientSurveysView from "./views/client/dashboard/ClientSurveysView";
+import CreateSurvey from "./views/client/CreateSurvey";
 // -> Views
 
 const routePath = process.env.PUBLIC_URL;
@@ -33,6 +35,9 @@ const App = (props) => {
                     <Route path={`${routePath}/user/profile`} exact component={ProfileView}/>
                     <Route path={`${routePath}/user/finance`} exact component={FinanceView}/>
                     <Route path={`${routePath}/user/surveys`} exact component={SurveysView}/>
+
+                    <Route path={`${routePath}/client/surveys`} exact component={ClientSurveysView} />
+                    <Route path={`${routePath}/client/survey/create`} exact component={CreateSurvey} />
 
                     <Redirect from="*" to={`${process.env.PUBLIC_URL}/login`} />
                 </Switch>

@@ -41,7 +41,7 @@ class LoginView extends View {
         if (username === "user") {
             this.go('user/finance');
         } else if (username === "client") {
-
+            this.go('client/surveys');
         } else {
             this.setState({error: "Verifique se todos os dados foram preenchidos corretamente."});
         }
