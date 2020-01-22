@@ -1,2 +1,1 @@
-![](https://github.com/coletiv/react-js-github-actions-example/workflows/Continuous%20Integration/badge.svg)
-![](https://github.com/coletiv/react-js-github-actions-example/workflows/Continuous%20Deployment/badge.svg)
+[![Actions Status](https://github.com/otter-solutions/easywork/workflows/ContinuousDeployment/badge.svg)](https://github.com/otter-solutions/easywork/actions)
