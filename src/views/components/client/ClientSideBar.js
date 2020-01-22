@@ -2,8 +2,9 @@ import React from 'react';
 import connect from "react-redux/es/connect/connect";
 
 import ArrowIcon from "../../../icons/ArrowIcon";
+import View from "../../View";
 
-class ClientSideBar extends React.Component {
+class ClientSideBar extends View {
     render() {
         return (
             <aside className="dashboard-menu mini">

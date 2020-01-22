@@ -2,6 +2,7 @@ import React from 'react';
 import InputFormHelper from "../helpers/InputFormHelper";
 import History from "../History";
 import TextFormHelper from "../helpers/TextFormHelper";
+import InputCoinFormHelper from "../helpers/InputCoinFormHelper";
 
 class View extends React.Component {
 
@@ -21,7 +22,14 @@ class View extends React.Component {
         this.appendToState(element.name, element.value);
     };
 
-    appendToState = (name, value) => {
+    handleInputCoin = ({target}, locale) : void => {
+
+        const element = new InputCoinFormHelper(target, locale);
+
+        this.appendToState(element.name, element.value);
+    };
+
+    appendToState = (name, value) : View => {
         if (this.form) {
             this.setState({
                 form: {
@@ -34,9 +42,11 @@ class View extends React.Component {
                 [name]: value
             });
         }
+
+        return this;
     };
 
-    go(link: string = "", routeName : string = ""): void {
+    go(link: string): void {
         History.push(`${process.env.PUBLIC_URL}/${link}`);
     }
 

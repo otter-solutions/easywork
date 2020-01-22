@@ -12,21 +12,21 @@ import WritingIcon from "../../icons/WritingIcon";
 
 class CreateSurvey extends View {
 
+    form = true;
+
+    currency: 'pt-BR';
+
     state = {
         currentTab: "one",
         form: {
             title: "",
             name: "",
             link: "",
-            instruction: ""
+            instruction: "",
+            reward: 0,
+            quantity: 1
         }
     };
-
-    constructor(props) {
-        super(props);
-        this.form = true;
-    }
-
 
     hasTab (tabName) {
         return tabName === this.state.currentTab ? "active" : "";
@@ -40,7 +40,11 @@ class CreateSurvey extends View {
 
     render() {
 
-        const { title, name, link, instruction } = this.state.form;
+        const { title, name, link, instruction, formatted, time, reward, quantity } = this.state.form;
+
+        const total = (reward * quantity).toLocaleString('pt-BR', {
+            minimumFractionDigits: 2
+        });
 
         return (
             <section view="research-create" className="page">
@@ -79,6 +83,7 @@ class CreateSurvey extends View {
                                            name="title"
                                            id="title"
                                            onChange={this.handleInputChange}
+                                           value={title}
                                            className="control"
                                            placeholder="Título da Pesquisa" />
                                 </div>
@@ -87,6 +92,7 @@ class CreateSurvey extends View {
                                            name="name"
                                            id="name"
                                            onChange={this.handleInputChange}
+                                           value={name}
                                            className="control"
                                            placeholder="Nome do Solicitante" />
                                 </div>
@@ -95,6 +101,7 @@ class CreateSurvey extends View {
                                            name="link"
                                            id="link"
                                            onChange={this.handleInputChange}
+                                           value={link}
                                            className="control"
                                            placeholder="Link da Pesquisa" />
                                 </div>
@@ -102,6 +109,7 @@ class CreateSurvey extends View {
                                     <textarea name="instruction"
                                               id="instruction"
                                               onChange={this.handleTextArea}
+                                              value={instruction}
                                               className="control"
                                               placeholder="Instruções" />
                                 </div>
@@ -115,56 +123,42 @@ class CreateSurvey extends View {
 
                             <div id="two" className={`tab-inner ${this.hasTab('two')}`}>
                                 <div className="row">
-                                    <p>Tempo Estimado:</p>
-                                    <div className="group">
-                                        <input type="text"
-                                               id="estimatedValue"
-                                               name="estimatedValue"
-                                               onChange={this.handleInputChange}
-                                               className="control" />
-                                    </div>
-                                    <div className="group">
-                                        <select name="unit" className="control">
-                                            <option value="" disabled defaultValue>Unidade</option>
-                                            <option value="BRL">Real</option>
-                                            <option value="EUR">Euro</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div className="row">
-                                    <p>Aprovação Automática:</p>
-                                    <div className="group">
-                                        <input type="text"
-                                               id="auto"
-                                               name="auto"
-                                               className="control" />
-                                    </div>
-                                    <div className="group">
-                                        <select name="unit" className="control">
-                                            <option value="" disabled defaultValue>Unidade</option>
-                                            <option value="BRL">Real</option>
-                                            <option value="EUR">Euro</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div className="row">
                                     <p>Recompensa:</p>
                                     <div className="group">
-                                        <input type="text" className="control" />
+                                        <input type="number"
+                                               id="reward"
+                                               name="reward"
+                                               onChange={(event) => this.handleInputCoin(event, this.currency)}
+                                               className="control" />
                                     </div>
-                                    <p>R$</p>
                                 </div>
                                 <div className="row">
-                                    <p>respondentes:</p>
+                                    <p>Respondentes:</p>
                                     <div className="group">
-                                        <input type="text" className="control" />
+                                        <input type="number"
+                                               id="quantity"
+                                               name="quantity"
+                                               onChange={this.handleInputChange}
+                                               value={quantity}
+                                               className="control" />
+                                    </div>
+                                </div>
+                                <div className="row">
+                                    <p>Tempo Estimado:</p>
+                                    <div className="group">
+                                        <input type="time"
+                                               id="time"
+                                               name="time"
+                                               onChange={this.handleInputChange}
+                                               value={time}
+                                               className="control" />
                                     </div>
                                 </div>
 
                                 <div className="result">
                                     <p>Valor total estimado:</p>
                                     <div className="group">
-                                        <input type="text" className="control" disabled defaultValue="0,00" />
+                                        <input type="text" className="control" disabled value={total} />
                                     </div>
                                 </div>
 
@@ -192,22 +186,18 @@ class CreateSurvey extends View {
                                             <div className="time">
                                                 <p>Tempo estimado</p>
                                                 <ClockIcon />
-                                                <span>05:00</span>
-                                            </div>
-                                            <div className="aprove">
-                                                <p>Aprovação automática</p>
-                                                <span>6 dias</span>
+                                                <span>{time}</span>
                                             </div>
                                         </div>
                                         <div className="content grey mb-0">
                                             <div className="time">
                                                 <p>Recompensa</p>
                                                 <DollarIcon />
-                                                <span>R$5:00</span>
+                                                <span>{total}</span>
                                             </div>
                                             <div className="aprove">
                                                 <p>Nº de Respondentes</p>
-                                                <span>20</span>
+                                                <span>{quantity}</span>
                                             </div>
                                         </div>
                                         <div className="content last grey">
@@ -215,7 +205,7 @@ class CreateSurvey extends View {
                                                 <p>Valor total estimado:</p>
                                             </div>
                                             <div className="aprove">
-                                                <div>R$ 100,00</div>
+                                                <div>{total}</div>
                                             </div>
                                         </div>
                                     </div>
