@@ -8,6 +8,8 @@
     "@testing-library/user-event": "^7.1.2",
     "axios": "^0.19.1",
     "history": "^4.10.1",
+    "i18next": "^19.1.0",
+    "lodash": "^4.17.15",
     "named-react-router-dom": "^1.0.1",
     "node-sass": "^4.13.0",
     "react": "^16.12.0",

@@ -11,11 +11,13 @@ import './styles/app.scss';
 
 import App from './App';
 
+import './bootstrap';
+
 const { persistor, store } = StoreThunk();
 
 ReactDOM.render(
     <Provider store={store}>
-        <PersistGate loading={() => { return (<div>Loading</div>) }} persistor={persistor}>
+        <PersistGate loading={() => { return (<h1>Carregando</h1>) }} persistor={persistor}>
             <App />
         </PersistGate>
     </Provider>,

@@ -3,10 +3,25 @@ import InputFormHelper from "../helpers/InputFormHelper";
 import History from "../History";
 import TextFormHelper from "../helpers/TextFormHelper";
 import InputCoinFormHelper from "../helpers/InputCoinFormHelper";
+import MessageHelper from "../helpers/MessageHelper";
+import FormHelper from "../helpers/FormHelper";
 
 class View extends React.Component {
 
     form: false;
+
+    constructor(props) {
+        super(props);
+
+        this.messageHelper = new MessageHelper(this);
+        this.formHelper = new FormHelper(this);
+    }
+
+    componentDidMount(): void {
+        this.setState({
+            errors: []
+        });
+    }
 
     handleInputChange = ({target}): void => {
 
@@ -45,6 +60,10 @@ class View extends React.Component {
 
         return this;
     };
+
+    handleError (ref) {
+        return this.state[`error_${ref}`];
+    }
 
     go(link: string): void {
         History.push(`${process.env.PUBLIC_URL}/${link}`);
